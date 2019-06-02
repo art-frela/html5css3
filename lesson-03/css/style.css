@@ -390,6 +390,7 @@ body {
   line-height: 20px;
   font-weight: 600;
   width: 140px;
+  height: 40px;
   border-radius: 5px;
 }
 
@@ -401,6 +402,35 @@ body {
   font-size: 16px;
   color: white;
   line-height: 20px;
+  list-style-type: none;
+}
+
+.contacts .channel li {
+  padding-left: 30px;
+  padding-bottom: 20px;
+}
+
+.contacts .skype {
+  background: url(../img/skype-icon.png) no-repeat left top;
+}
+
+.contacts .icq {
+  background: url(../img/icq-icon.png) no-repeat left top;
+}
+
+.contacts .phone {
+  background: url(../img/phone-icon.png) no-repeat left top;
+}
+
+.contacts .mail {
+  background: url(../img/mail-icon.png) no-repeat left top;
+}
+
+.contacts .social {
+  margin-left: 40px;
+  width: 240px;
+  height: 42px;
+  background: url(../img/social-icon.png) no-repeat left top;
 }
 
 footer {
