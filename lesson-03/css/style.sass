@@ -1,27 +1,305 @@
-$bg-gray: #FFF
-$bg-darkgray: #445162
-$c-white: white
-$borders: 50px
+@import vars
+
+=width($width)
+    // width: $width
+    // margin: 0 auto
+
+=f-shadow()
+    -moz-text-shadow: 0.5px 0.866px 0px rgba(0, 0, 0, 0.3)
+    -webkit-text-shadow: 0.5px 0.866px 0px rgba(0, 0, 0, 0.3)
+    text-shadow: 0.5px 0.866px 0px rgba(0, 0, 0, 0.3)
+
+=button($color, $bg-color)
+    color: $color
+    background-color: $bg-color
+    font-size: 16px
+    line-height: 20px
+    font-weight: 600
 
 body
     font-family: ArialMT, sans-serif
     background-color: $bg-gray
 
-.header
+.dflexw
     display: flex
-    background-color: $bg-darkgray
-    color: $c-white
-    nav 
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
-        padding: $borders
-        width: 100%
-.product-name
-    display: flex
-    flex-direction: column
-    padding-right: $borders
     flex-wrap: wrap
 
+.dflex-sb-p
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: $b-padding
+
+.dflex-dc
+    display: flex
+    flex-direction: column
+
+.dflex-cc
+    display: flex
+    justify-content: center
+    align-items: center
+
+.placeholder
+    color: $c-dark
+    font-size: 16px
+    line-height: 20px
+    font-weight: 100
+.form-el
+    color: $c-dark
+    font-size: 16px
+    line-height: 20px
+    font-weight: 500
+    margin-bottom: 15px
+    padding: 10px
+    border-radius: 10px
+
+.s-title
+        display: flex
+        justify-content: center
+        color: #445160
+        font-size: 30px
+
+.header
+    +width($site-width)
+    display: flex
+    background-color: $c-dark
+    color: $c-white
+    nav 
+        @extend .dflex-sb-p
+        width: 100%
+.product-name
+    @extend .dflexw
+    flex-direction: column
+    padding-right: $b-padding
+
+.product-title
+    font-size: 60px
+    +f-shadow
+
+.feature-list
+    list-style-image: url(../img/check-icon.png)
+    li
+        font-size: 20px
+        line-height: 30px
+        +f-shadow
+.logo
+    width: 469px
+    height: 214px
+    background: $bg-white
+
+    // ABOUT
+.about
+    @extend .dflex-sb-p
+    +width($site-width)
+    .about-content
+        @extend .dflex-dc
+        flex-basis: 665px;
+        flex-grow: 2;
+        padding-right: $b-padding
+    .about-title
+        color: #445160
+        font-size: 30px
+    .about-text
+        margin-top: 20px
+        color: #333333
+        font-size: 16px
+        line-height: 20px
+    .video-about
+        width: 430px
+        height: 245px
+        background: #445161
+// PLUSES
+.pluses
+    @extend .dflex-sb-p
+    +width($site-width)
+    flex-direction: column
+    background-color: #F5F5F5
+    .dignity-title
+        @extend .s-title
+    .lists
+        display: flex
+        margin-top: 20px
+    ul
+        @extend .dflex-dc
+        padding-right: 20px
+        padding-left: 0
+    li
+        color: #333333
+        font-size: 16px
+        line-height: 20px
+        background: url(../img/plus-icon.png) no-repeat left top
+        padding: 0px 0px 32px 42px
+        list-style: none
+        margin: 0
+// SCRINSHOTS
+.scrinshots
+    @extend .dflex-dc
+    padding: $b-padding
+    .scrincols
+        display: flex
+        flex-wrap: wrap
+        margin-top: 20px
+        justify-content: space-between
+        width: 100%
+    .scrinshots-title
+        @extend .s-title
+    article 
+        @extend .dflex-dc
+        flex-wrap: wrap
+        //width: (($site-width - $b-padding*2) / 2) - 20px
+    figure 
+        @extend .dflexw
+        margin: 0
+        padding: 0px 20px 20px 0px
+    figcaption
+        @extend .dflex-dc
+        padding: 0px $screen-text-p $screen-text-p $screen-text-p
+        width: (($site-width - 2*$b-padding) / 2) - ($screen-width + (2 * $screen-text-p))
+    span 
+        color: #445160
+        font-size: 24px
+        line-height: 25px
+    p
+        color: #333333
+        font-size: 16px
+        line-height: 20px
+    div
+        width: $screen-width
+        height: 150px
+        background: #445161
+// REVIEWS       
+.reviews
+    @extend .dflex-dc
+    padding: $b-padding
+    background-color: #F5F5F5
+    .reviews-title
+        @extend .s-title
+    .reviewcols
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        padding: 20px 0px 20px 0px
+    article
+        display: flex
+    figure 
+        display: flex
+        margin: 0px
+        padding-bottom: 20px
+    figcaption 
+        @extend .dflex-dc
+        padding: 15px 15px 15px 30px
+        flex-basis: 450px
+        background: url(../img/phrase-icon.png) no-repeat left top
+        margin-left: 15px
+        span
+            color: #333333
+            font-family: Arial-ItalicMT
+            font-size: 14px
+            line-height: 15px
+        p
+            color: #989898
+            font-size: 14px
+            line-height: 15px
+
+.buy-it-now
+    @extend .dflex-dc
+    padding: $b-padding
+    .buy-title
+        @extend .s-title
+    .buy-options
+        @extend .dflexw
+        align-items: flex-end
+        justify-content: space-around
+        padding: 0 $b-padding 0 $b-padding
+    article
+        @extend .dflex-dc
+        width: $buy-option-w
+        background-color: $c-dark
+    .option-name
+        @extend .dflex-cc
+        height: 50px
+        color: white
+        font-size: 24px
+        line-height: 25px
+    .option-price
+        @extend .dflex-cc
+        height: 71px
+        background-color: $c-white
+        color: $c-dark
+        font-size: 40px
+        line-height: 25px
+    .option-features
+        padding: $screen-text-p
+    ul
+        list-style-type: decimal
+        color: white
+        font-size: 14px
+        line-height: 20px
+        padding: 0 0 $screen-text-p $screen-text-p
+        padding-bottom: $screen-text-p
+    button
+        width: 100%
+        height: 40px
+        background: $bg-white
+        color: $c-dark
+        font-weight: bold
+        font-size: 18px
+        line-height: 15px
+
+.contacts
+    @extend .dflex-dc
+    padding: $b-padding
+    background-color: $c-dark
+    .contact-title
+        @extend .s-title
+        font-size: 30px
+        font-weight: bold
+        color: $c-white
+    .contact-data
+        @extend .dflexw
+        justify-content: center
+        padding-top: 20px
+    .contact-form
+        @extend .dflex-dc
+    form
+        @extend .dflex-dc
+        width: $form-width
+        justify-items: center
+    input
+        @extend .form-el
+        &::placeholder
+            @extend .placeholder
+    textarea
+        @extend .form-el
+        &::placeholder
+            @extend .placeholder
+    .btn
+        @extend .dflexw
+        justify-content: center
+    button
+        +button($c-dark, $c-white)
+        width: 140px
+        border-radius: 5px
+    .contact-info
+        ul
+            paddint-top: 0px
+    .channel
+        font-size: 16px
+        color: $c-white
+        line-height: 20px
 
 
+
+
+    
+
+        
+
+// FOOTER
+footer
+    display: flex
+    justify-content: center
+    color: #435161
+    background-color: #f5f5f5
+    font-size: 12px
+    line-height: 20px
